@@ -38,12 +38,12 @@
             android:id="@+id/buttonStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/style_btn_stroke_black95_press_white"
+            android:background="@drawable/button_stroke_black95_press_white"
             android:layout_weight="1"
             android:text="@string/start"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/black95"
-            android:textSize="24dp"/>
+            android:textSize="24sp"/>
     </LinearLayout>
 </RelativeLayout>
