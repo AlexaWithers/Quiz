@@ -65,8 +65,32 @@ public class Level1 extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
         dialog.show();
 
+
+        //кнопка "назад"
+        Button btn_back = (Button)findViewById(R.id.button_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent(Level1.this,GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception e){
+
+                }
+            }
+        });
+    }
+    //системная кнопка "назад"
+    public void onBackPressed(){
+        try{
+            Intent intent = new Intent(Level1.this,GameLevels.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e){
+
+        }
     }
 }
