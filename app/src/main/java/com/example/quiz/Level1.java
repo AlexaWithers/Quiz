@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +28,7 @@ public class Level1 extends AppCompatActivity {
     public int numRight;
     Array array=new Array();
     Random random = new Random();
+    public int count = 0;//счетчик правильных ответов
 
 
     @Override
@@ -95,6 +99,8 @@ public class Level1 extends AppCompatActivity {
             }
         });
 
+        final Animation a = AnimationUtils.loadAnimation(Level1.this,R.anim.alpha);
+
         numLeft=random.nextInt(10);
         img_left.setImageResource(array.images1[numLeft]);
         text_left.setText(array.text1[numLeft]);
@@ -105,7 +111,33 @@ public class Level1 extends AppCompatActivity {
         }
         img_right.setImageResource(array.images1[numRight]);
         text_right.setText(array.text1[numRight]);
+
+
+        //обрабатывается нажатие на левую картинку
+        img_left.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_DOWN){
+                    img_right.setEnabled(false);
+                    if (numLeft<numRight){
+                        img_left.setImageResource(R.drawable.img_true);
+                    } else{
+                        img_left.setImageResource(R.drawable.img_false);
+                    }
+
+                }else if (event.getAction()==MotionEvent.ACTION_UP){
+
+                }
+
+                return true;
+            }
+        });
+
+
+
     }
+
+
     //системная кнопка "назад"
     public void onBackPressed(){
         try{
