@@ -99,6 +99,10 @@ public class Level1 extends AppCompatActivity {
             }
         });
 
+        final int[] progress = {
+                R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7
+        };
+
         final Animation a = AnimationUtils.loadAnimation(Level1.this,R.anim.alpha);
 
         numLeft=random.nextInt(10);
@@ -126,6 +130,22 @@ public class Level1 extends AppCompatActivity {
                     }
 
                 }else if (event.getAction()==MotionEvent.ACTION_UP){
+                    if(numLeft<numRight){
+                        if(count<7){
+                            count=count+1;
+                        }
+                        for (int i =0; i<7; i++){
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points);
+                        }
+
+                        for (int i=0;i<count;i++){
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    }else {
+
+                    }
 
                 }
 
