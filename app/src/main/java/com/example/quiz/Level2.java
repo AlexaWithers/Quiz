@@ -1,7 +1,5 @@
 package com.example.quiz;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,12 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
-import java.util.logging.Level;
 
-public class Level1 extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Level2 extends AppCompatActivity {
 
     Dialog dialog;
-    Dialog dialogEnd;
 
     public int numLeft;
     public int numRight;
@@ -65,7 +63,7 @@ public class Level1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {//обработка нажатия
                try{
-                   Intent intent=new Intent(Level1.this,GameLevels.class);
+                   Intent intent=new Intent(Level2.this,GameLevels.class);
                    startActivity(intent);
                    finish();
                } catch (Exception e){
@@ -85,56 +83,13 @@ public class Level1 extends AppCompatActivity {
         dialog.show();
 
 
-
-        //Вызов диалогового окна в конце уровня
-        dialogEnd=new Dialog(this);
-        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE);//скрываем заголовок
-        dialogEnd.setContentView(R.layout.dialogend);//путь
-        dialogEnd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//прозрачный фон
-        dialogEnd.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT);
-        dialogEnd.setCancelable(false);//окно нельзя закрыть кнопкой назад
-
-        //закрывает диалоговое окно
-        TextView btnclose2 = (TextView)dialogEnd.findViewById(R.id.btnclose);
-        btnclose2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {//обработка нажатия
-                try{
-                    Intent intent=new Intent(Level1.this,GameLevels.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e){
-
-                }
-                dialogEnd.dismiss();
-            }
-        });
-
-        Button btncontinue2 = (Button)dialogEnd.findViewById(R.id.btncontinue) ;
-        btncontinue2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(Level1.this, Level2.class);
-                    startActivity(intent); finish();
-                }catch (Exception e){
-
-                }
-
-                dialogEnd.dismiss();
-            }
-        });
-
-
-
         //кнопка "назад"
         Button btn_back = (Button)findViewById(R.id.button_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
-                    Intent intent = new Intent(Level1.this,GameLevels.class);
+                    Intent intent = new Intent(Level2.this,GameLevels.class);
                     startActivity(intent);
                     finish();
                 } catch (Exception e){
@@ -147,7 +102,7 @@ public class Level1 extends AppCompatActivity {
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7
         };
 
-        final Animation a = AnimationUtils.loadAnimation(Level1.this,R.anim.alpha);
+        final Animation a = AnimationUtils.loadAnimation(Level2.this,R.anim.alpha);
 
         numLeft=random.nextInt(10);
         img_left.setImageResource(array.images1[numLeft]);
@@ -207,7 +162,6 @@ public class Level1 extends AppCompatActivity {
 
                     }
                     if (count==7){
-                        dialogEnd.show();
 
                     }else{
                         numLeft=random.nextInt(10);
@@ -278,7 +232,6 @@ public class Level1 extends AppCompatActivity {
 
                     }
                     if (count==7){
-                        dialogEnd.show();
 
                     }else{
                         numLeft=random.nextInt(10);
@@ -310,7 +263,7 @@ public class Level1 extends AppCompatActivity {
     //системная кнопка "назад"
     public void onBackPressed(){
         try{
-            Intent intent = new Intent(Level1.this,GameLevels.class);
+            Intent intent = new Intent(Level2.this,GameLevels.class);
             startActivity(intent);
             finish();
         } catch (Exception e){

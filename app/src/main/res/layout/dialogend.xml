@@ -18,36 +18,29 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/btnclose"
-            android:text="&#60;"
+            android:text="X"
             android:textStyle="bold"
             android:gravity="center"
             android:background="@drawable/button_stroke_black95_press_white"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/previewimg"
-            android:src="@drawable/previewimgone"
-            android:layout_weight="60"
-            android:layout_marginTop="10dp"/>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="90"
+    android:layout_marginTop="10dp">
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="30"
-            android:layout_marginTop="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textdescriptionEnd"
+        android:text="@string/leveloneEnd"
+        android:textColor="@color/black95"
+        android:textSize="24sp"
+        />
+</ScrollView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/textdescription"
-                android:text="@string/levelone"
-                android:textColor="@color/black95"
-                android:textSize="24sp"
 
-                />
-        </ScrollView>
 
         <Button
             android:layout_width="wrap_content"
